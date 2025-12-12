@@ -1,0 +1,32 @@
+:root {
+  --primary-color: #E3FDFD;
+  --secondary-color: #CBF1F5;
+  --tertiary-color:#A6E3E9;
+  --quaternary-color: #71C9CE;
+
+  --page-color:var(--secondary-color);
+}  
+
+.d-sm-flex {
+    margin-bottom: 30px;
+}
+
+.Feature-Section {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+
+.carousel-section {
+    margin: 30px;
+}
+
+body {
+    background-color: var(--page-color);
+    font-family: "Times New Roman", Times, serif;
+    font-size: large;
+}
+
+.tvc_image {
+    background-color: var(--page-color);
+}
