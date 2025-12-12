@@ -3,6 +3,7 @@
   --secondary-color: #CBF1F5;
   --tertiary-color:#A6E3E9;
   --quaternary-color: #71C9CE;
+  --logo-color: rgb(92,141,161);
 
   --page-color:var(--secondary-color);
 }  
