@@ -31,3 +31,33 @@ body {
 .tvc_image {
     background-color: var(--page-color);
 }
+
+.menu-page {
+    font-size: x-large;
+    line-height: 2.0;
+    padding-left: 5%;
+    padding-right:5%
+}
+
+.two-column {
+    display:flex;
+    flex-direction: row; /* Default: items in a row */
+    width:90%;
+    margin-left: 5%;
+    gap:10px;
+}
+
+.column-one {
+    flex: 1 1 33%;
+}
+
+.column-two {
+    flex: 2 2 auto;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 991px) {
+  .two-column {
+    flex-direction: column; /* On screens 600px or less, stack items vertically */
+  }
+}
