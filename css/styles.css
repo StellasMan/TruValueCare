@@ -55,9 +55,20 @@ body {
     flex: 2 2 auto;
 }
 
+.about-group {
+    padding:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: lightblue;
+}
+
+.about-item {
+    margin-left: 25px;
+}
+
 /* Media Query for smaller screens */
 @media (max-width: 991px) {
   .two-column {
-    flex-direction: column; /* On screens 600px or less, stack items vertically */
+    flex-direction: column; /* On screens 991px or less, stack items vertically */
   }
 }
