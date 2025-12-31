@@ -75,7 +75,7 @@ function addHeader() {
     </nav>`
     ;
 
-    // Get the HTML element by its ID
+    // Get the header element by its ID
     const hdrElement = document.getElementById("hdrSection");
 
     // Insert the header
@@ -102,7 +102,7 @@ function addFooter() {
         </footer>`
     ;
 
-    // Get the HTML element by its ID
+    // Get the footer element by its ID
     const ftrElement = document.getElementById("ftrSection");
 
     // Insert the header
