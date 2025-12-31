@@ -42,7 +42,10 @@ function addHeader() {
                         <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="services.html">Services</a>
+                        <a class="nav-link" aria-current="page" href="./services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="https://pp-wfe-101.advancedmd.com/account/logon?lk=161930">Patient Portal</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a
