@@ -98,7 +98,7 @@ function addFooter() {
 
         <hr style="margin-left:5%" width="90%">
 
-        <p class="text-center text-body-secondary">© 2024-<span id="dateYear"></span> Tru-Value Care, LLC</p>
+        <p class="text-center text-body-secondary">© 2025-<span id="dateYear"></span> Tru-Value Care, LLC</p>
         </footer>`
     ;
 
