@@ -67,7 +67,7 @@ function addHeader() {
                         </ul>
                     </li>
                     <li>
-                        <a href="./contact.html" class="btn btn-primary">Contact</a>
+                        <a  style="font-weight: 600; font-size: large" href="./contact.html" class="btn btn-primary">Contact</a>
                     </li>
                 </ul>
             </div>
