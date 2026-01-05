@@ -55,7 +55,7 @@ function addHeader() {
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                        About Us
+                            About Us
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./our_practice.html">Our Practice</a></li>
@@ -66,8 +66,8 @@ function addHeader() {
                             <li><a class="dropdown-item" href="#">Gallery</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a  style="font-weight: 600; font-size: large" href="./contact.html" class="btn btn-primary">Contact</a>
+                    <li pl-5">
+                        <a  href="./contact.html" class="btn btn-primary">Contact</a>
                     </li>
                 </ul>
             </div>
