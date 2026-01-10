@@ -13,7 +13,7 @@
          <link rel="stylesheet" href="./css/styles.css"/>
     </head>
 
-    <body onload="initializePage()">
+    <body onload="initializeContactPage()">
         <div class="nav-bar">
             <div id="hdrSection">
             </div>
@@ -76,7 +76,7 @@
                 </div> 
             </div>
 
-            <form class="grid-form">
+            <form id="submit_form" class="grid-form">
                 <div style="justify-items: center" class="form-group span-two">
                     <p>
                         <h2>Request an Appointment</h2>
@@ -85,12 +85,12 @@
 
                 <div class="form-group">
                     <label for="first-name">First Name*</label>
-                    <input class="form-control" type="text" id="first-name" name="first-name" required>
+                    <input class="form-control" type="text" id="first_name" name="first_name" required>
                 </div>
 
                 <div class="form-group">
                     <label for="last-name">Last Name*</label>
-                    <input class="form-control" type="text" id="last-name" name="last-name" required>
+                    <input class="form-control" type="text" id="last_name" name="last_name" required>
                 </div>
 
                 <div class="form-group">
@@ -98,8 +98,8 @@
                     <input 
                         class="form-control" 
                         type="tel" 
-                        id="phone" 
-                        name="phone" 
+                        id="phone_number" 
+                        name="phone_number" 
                         pattern="(([0-9]{3}-?)|(\([0-9]{3}\)\s?))[0-9]{3}-?[0-9]{4}"
                         required
                         title="Phone number format: 123-456-7890">                    
@@ -116,19 +116,19 @@
                 </div>
 
                 <div>
-                    <label for="fruits">How did you hear about us?</label>
+                    <label for="referral_method">How did you hear about us?</label>
                     <select id="referral" name="referral_selected">
-                        <option value="referral_friend">Friend</option>
-                        <option value="referral_family">Family Member</option>
-                        <option value="referral_internet" selected>Internet</option>
-                        <option value="referral_other">Other</option> <!-- This option is selected by default -->
+                        <option value="Friend">Friend</option>
+                        <option value="Family">Family Member</option>
+                        <option value="Internet" selected>Internet</option>  <!-- This option is selected by default -->
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="form-group span-two">
                     <p>
                         How can we help?
                     </p>
-                    <textarea type="text" name="comments" class="form-control" rows="5"></textarea>
+                    <textarea type="text" id="client_comments" name="client_comments" class="form-control" rows="5"></textarea>
                 </div>
 
                 <div class="form-group span-two">
@@ -143,11 +143,17 @@
             </div>
         </div>
 
+        <!-- Reference Bootstrap CDN -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
             crossorigin="anonymous">
         </script>
+
+        <!-- Reference EmailJS CDN -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+        <!-- Include our own scripts -->
         <script src="./scripts/misc.js"></script>
     </body>
 </html>

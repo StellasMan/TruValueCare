@@ -4,6 +4,77 @@ function initializePage() {
     addDate();
 }
 
+function initializeContactPage() {
+    initializePage();
+    initializeEJS();
+}
+
+function initializeEJS() 
+{
+    try {
+        emailjs.init({
+            publicKey: 'geS2qWKzC39WSHNX1',
+            // Do not allow headless browsers
+            blockHeadless: true,
+            blockList: {
+                // Block the suspended emails
+                list: [],
+                // The variable contains the email address
+                watchVariable: 'userEmail',
+            },
+            limitRate: {
+                // Set the limit rate for the application
+                id: 'app',
+                // Allow 2 request per second
+                throttle: 2000,
+            },
+        });
+    } catch(err) {
+        alert(`EJS Init failed: ${err.message}`);
+    }
+
+    // Get form and add the event listener
+    const submitForm = document.getElementById("submit_form");
+    submitForm.addEventListener("submit", OnSubmit);
+}
+
+async function OnSubmit(event) 
+{
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    const form = document.querySelector('#submit_form');
+
+    // Create a FormData object from the form element
+    var formData = new FormData(form);
+
+    // Convert all data to a plain JavaScript object
+    const formObject = Object.fromEntries(formData.entries());
+    formObject['email'] = 'jla.armstrong@gmail.com';    // Target email for EmailEJS
+    
+    // Replace 'on'/'off' with 'Yes'/'No'
+    newPatientRaw = formObject['new_patient'];
+    newPatient = (newPatientRaw=='on') ? "Yes" : "No";
+    formObject['new_patient'] = newPatient;
+
+    console.log('Form Object: ', formObject);
+
+    try {
+        emailjs.send("service_hze44sb","template_mjifqer", formObject)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert("Message sent");
+            window.location.reload();
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert("Send failed");
+        });
+    } 
+    catch (error) {
+        console.error("Failed to send email:", error);
+    }
+}
+
 function addDate() {
     // Create a new Date object for the current date and time
     const currentDate = new Date();
