@@ -75,6 +75,11 @@ async function OnContactSubmit(event)
     newPatient = (newPatientRaw=='on') ? "Yes" : "No";
     formObject['new_patient'] = newPatient;
 
+    // Create a new Date object for the current date and time
+    const currentDate = new Date();
+    const timeStamp = currentDate.toLocaleString();
+    formObject['time_stamp'] = timeStamp;
+
     console.log('Form Object: ', formObject);
 
     try 
@@ -112,6 +117,20 @@ async function OnReferralSubmit(event)
     const formObject = Object.fromEntries(formData.entries());
     formObject['email'] = 'jla.armstrong@gmail.com';    // Target email for EmailEJS
     
+    // Replace patient age range with readable text
+    var patientAgeRaw = formObject['patient_age'];
+    var patientAge = 
+            (patientAgeRaw == 'Five212')        ? "5-12"    :
+            (patientAgeRaw == 'Thirteen217')    ? "13-17"   :
+            (patientAgeRaw == 'Eighteen260')    ? "18-60"   :
+            (patientAgeRaw == 'Over60')         ? "Over 60" : 'Unknown';
+    formObject['patient_age'] = patientAge;
+
+    // Create a new Date object for the current date and time
+    const currentDate = new Date();
+    const timeStamp = currentDate.toLocaleString();
+    formObject['time_stamp'] = timeStamp;
+
     console.log('Form Object: ', formObject);
 
     try 
