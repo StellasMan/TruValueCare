@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>True Value Care LLC</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+            crossorigin="anonymous"/>
+
+         <link rel="stylesheet" href="./css/styles.css"/>
+    </head>
+
+    <body onload="initializeContactPage()">
+        <div class="nav-bar">
+            <div id="hdrSection">
+            </div>
+        </div>
+
+        <div class="body-content">
+            <div class="col-lg-10 mx-auto">
+                <div class="px-4 pt-3 py-1 my-1 text-center">
+                    <img src="./Images/ReceptionAreaContactUs.jpg" width=100%; alt="Contact Us">
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row entry">
+                    <div class="col-12">
+                        <h1 style="text-align: center;">Referral Information</h1>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+            <form class="referral-form" action="/submit-form" method="post">
+                <!-- Referring Physician's Information -->
+                <fieldset class="group-form">
+                    <legend class="span-three"><h3>Referrer's Information</h3></legend>
+                    <div>
+                        <input 
+                            placeholder="Referring Provider's Full Name " 
+                            class="form-control" 
+                            type="text" 
+                            id="full_name" 
+                            name="full_name" 
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <input 
+                            placeholder="Phone Number" 
+                            class="form-control" 
+                            type="tel" 
+                            id="phone_number" 
+                            name="phone_number" 
+                            pattern="(([0-9]{3}-?)|(\([0-9]{3}\)\s?))[0-9]{3}-?[0-9]{4}"
+                            title="Phone number format: 123-456-7890"                    
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <input 
+                            placeholder="EMail" 
+                            class="form-control" 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required />
+                    </div>
+
+                    <div>
+                        <input 
+                            placeholder="Referring Provider License Type" 
+                            class="form-control" 
+                            type="text" 
+                            id="license_type" 
+                            name="license_type">
+                    </div>
+
+                    <div style="grid-column: 2 / span 2;">
+                        <input 
+                            placeholder="Organization" 
+                            class="form-control" 
+                            type="text" 
+                            id="organization" 
+                            name="organization">
+                    </div>
+
+                </fieldset>
+
+                <!-- Patient Information -->
+                <fieldset class="group-form">
+                    <legend class="span-three"><h3>Patient Information</h3></legend>
+                    <div>
+                        <input 
+                            placeholder="First Name" 
+                            class="form-control" 
+                            type="text" 
+                            id="first_name" 
+                            name="first_name" 
+                            required>
+                    </div>
+
+                    <div>
+                        <input 
+                            placeholder="Last Name" 
+                            class="form-control" 
+                            type="text" 
+                            id="last_name" 
+                            name="last_name" 
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <input 
+                            placeholder="Phone Number" 
+                            class="form-control" 
+                            type="tel" 
+                            id="patient_phone_number" 
+                            name="patient_phone_number" 
+                            pattern="(([0-9]{3}-?)|(\([0-9]{3}\)\s?))[0-9]{3}-?[0-9]{4}"
+                            title="Phone number format: 123-456-7890"                    
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <input 
+                            placeholder="EMail" 
+                            class="form-control" 
+                            type="email" 
+                            id="patient_email" 
+                            name="patient_email" 
+                            required />
+                    </div>
+
+                    <div>
+                        <input 
+                            placeholder="Patient's Insurance Plan" 
+                            class="form-control" 
+                            type="text" 
+                            id="insurance_plan" 
+                            name="insurance_plan" 
+                            required>
+                    </div>
+
+                    <div style="text-align: left;"  class="form-group">
+                        Age&nbsp;range&nbsp;of&nbsp;patient:
+                        <select 
+                                id="patient_age" 
+                                name="patient_age">
+                            <option value="Five212">5-12</option>
+                            <option value="Thirteen217">13-17</option>
+                            <option value="Eighteen260" selected>18-60</option>
+                            <option value="Over60">Over 60</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <fieldset style="border: 1px solid transparent;" class="group-form">
+                    <div
+                        class="form-group span-one">
+                        <button type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div>
+            <div id="ftrSection">
+            </div>
+        </div>
+
+        <!-- Reference Bootstrap CDN -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Reference EmailJS CDN -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+        <!-- Include our own scripts -->
+        <script src="./scripts/misc.js"></script>
+    </body>
+</html>

@@ -85,6 +85,7 @@ body {
 }
 
 /* Styles for forms input */
+/* *** Contact Request *** */
 .grid-form {
   display: grid;
   /* Creates two columns of equal width */
@@ -98,6 +99,11 @@ body {
   padding: 20px;
   border: 1px solid rgb(13, 202, 240); /* border-info color */
   border-radius: 20px;
+}
+
+/* *** Referral *** */
+.referral-form {
+  background-color: antiquewhite;
 }
 
 .boxed-item {
@@ -114,6 +120,23 @@ body {
   margin-bottom: 5px;
 }
 
+.group-form {
+  display: grid;
+  /* Creates three columns of equal width */
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+
+  /* Adds space between the rows and columns */
+  gap: 20px;
+  /* Ensures inputs don't overflow the container */
+  box-sizing: border-box; 
+  max-width: 85%;
+  margin: 10px 7% 10px 8%;
+  padding: 20px;
+  border: 1px solid rgb(13, 202, 240); /* border-info color */
+  border-radius: 20px;
+}
+
 .form-group input {
   /* Ensures inputs take the full width of their grid cell */
   width: 100%; 
@@ -124,11 +147,27 @@ body {
 }
 
 /* Class to make items span across both columns */
-.span-two {
-  grid-column: 1 / span 2; /* Starts at line 1 and spans 2 columns */
+.span-one {
+  grid-column: 2 / span 1; /* Starts at column 2 and spans 1 column */
 }
 
-.span-two button {
+/* Class to make items span across both columns */
+.span-two {
+  grid-column: 1 / span 2; /* Starts at column 1 and spans 2 columns */
+}
+
+/* Class to make items span across three columns */
+.span-three {
+  grid-column: 1 / span 3; /* Starts at column 1 and spans 3 columns */
+}
+
+.inline-label {
+  display: inline-block;
+  width: 100px; /* Optional: ensures uniform label width across a form */
+  margin-right: 10px; /* Adds space between label and input */
+}
+
+:is(.span-one, .span-two, .span-three) button {
   width: 100%;
   height: 2.5rem;
   background-color: rgb(13,110, 253);
