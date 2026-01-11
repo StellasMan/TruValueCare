@@ -22,7 +22,7 @@
         <div class="body-content">
             <div class="col-lg-10 mx-auto">
                 <div class="px-4 pt-3 py-1 my-1 text-center">
-                    <img src="./Images/ReceptionAreaContactUs.jpg" width=100%; alt="Contact Us">
+                    <img src="./Images/ReceptionAreaBase.jpg" width=100%; alt="Referral Information">
                 </div>
             </div>
 
@@ -35,17 +35,17 @@
                 </div>
             </div>
 
-            <form class="referral-form" action="/submit-form" method="post">
+            <form id="referral_form" class="referral-form">
                 <!-- Referring Physician's Information -->
                 <fieldset class="group-form">
                     <legend class="span-three"><h3>Referrer's Information</h3></legend>
                     <div>
                         <input 
-                            placeholder="Referring Provider's Full Name " 
+                            placeholder="Referring Provider's Full Name" 
                             class="form-control" 
                             type="text" 
-                            id="full_name" 
-                            name="full_name" 
+                            id="provider_full_name" 
+                            name="provider_full_name" 
                             required>
                     </div>
 
@@ -54,8 +54,8 @@
                             placeholder="Phone Number" 
                             class="form-control" 
                             type="tel" 
-                            id="phone_number" 
-                            name="phone_number" 
+                            id="provider_phone_number" 
+                            name="provider_phone_number" 
                             pattern="(([0-9]{3}-?)|(\([0-9]{3}\)\s?))[0-9]{3}-?[0-9]{4}"
                             title="Phone number format: 123-456-7890"                    
                             required>
@@ -66,8 +66,8 @@
                             placeholder="EMail" 
                             class="form-control" 
                             type="email" 
-                            id="email" 
-                            name="email" 
+                            id="provider_email" 
+                            name="provider_email" 
                             required />
                     </div>
 
@@ -76,8 +76,8 @@
                             placeholder="Referring Provider License Type" 
                             class="form-control" 
                             type="text" 
-                            id="license_type" 
-                            name="license_type">
+                            id="provider_license_type" 
+                            name="provider_license_type">
                     </div>
 
                     <div style="grid-column: 2 / span 2;">
@@ -85,8 +85,8 @@
                             placeholder="Organization" 
                             class="form-control" 
                             type="text" 
-                            id="organization" 
-                            name="organization">
+                            id="provider_organization" 
+                            name="provider_organization">
                     </div>
 
                 </fieldset>
@@ -94,23 +94,23 @@
                 <!-- Patient Information -->
                 <fieldset class="group-form">
                     <legend class="span-three"><h3>Patient Information</h3></legend>
-                    <div>
+                    <div class="form-group">
                         <input 
                             placeholder="First Name" 
                             class="form-control" 
                             type="text" 
-                            id="first_name" 
-                            name="first_name" 
+                            id="patient_first_name" 
+                            name="patient_first_name" 
                             required>
                     </div>
 
-                    <div>
+                    <div class="form-group">
                         <input 
                             placeholder="Last Name" 
                             class="form-control" 
                             type="text" 
-                            id="last_name" 
-                            name="last_name" 
+                            id="patient_last_name" 
+                            name="patient_last_name" 
                             required>
                     </div>
 
@@ -136,26 +136,28 @@
                             required />
                     </div>
 
-                    <div>
+                    <div class="form-group">
                         <input 
                             placeholder="Patient's Insurance Plan" 
                             class="form-control" 
                             type="text" 
-                            id="insurance_plan" 
-                            name="insurance_plan" 
+                            id="patient_insurance_plan" 
+                            name="patient_insurance_plan" 
                             required>
                     </div>
 
                     <div style="text-align: left;"  class="form-group">
-                        Age&nbsp;range&nbsp;of&nbsp;patient:
-                        <select 
-                                id="patient_age" 
-                                name="patient_age">
-                            <option value="Five212">5-12</option>
-                            <option value="Thirteen217">13-17</option>
-                            <option value="Eighteen260" selected>18-60</option>
-                            <option value="Over60">Over 60</option>
-                        </select>
+                        <div class="label-combo">
+                            <label for="patient_age">Age&nbsp;range&nbsp;of&nbsp;patient:</label>
+                            <select 
+                                    id="patient_age" 
+                                    name="patient_age">
+                                <option value="Five212">5-12</option>
+                                <option value="Thirteen217">13-17</option>
+                                <option value="Eighteen260" selected>18-60</option>
+                                <option value="Over60">Over 60</option>
+                            </select>
+                        </div>
                     </div>
 
                 </fieldset>

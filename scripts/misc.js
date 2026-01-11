@@ -1,44 +1,62 @@
-function initializePage() {
+function initializePage() 
+{
     addHeader();
     addFooter();
     addDate();
 }
 
-function initializeContactPage() {
+function initializeContactPage() 
+{
     initializePage();
     initializeEJS();
 }
 
 function initializeEJS() 
 {
-    try {
-        emailjs.init({
+    try 
+    {
+        emailjs.init(
+        {
             publicKey: 'geS2qWKzC39WSHNX1',
             // Do not allow headless browsers
             blockHeadless: true,
-            blockList: {
+            blockList: 
+            {
                 // Block the suspended emails
                 list: [],
                 // The variable contains the email address
                 watchVariable: 'userEmail',
             },
-            limitRate: {
+            limitRate: 
+            {
                 // Set the limit rate for the application
                 id: 'app',
                 // Allow 2 request per second
-                throttle: 2000,
+                throttle: 2000
             },
         });
-    } catch(err) {
+    } 
+    catch(err) 
+    {
         alert(`EJS Init failed: ${err.message}`);
     }
 
-    // Get form and add the event listener
+    // Get 'Contact' form and add the event listener
     const submitForm = document.getElementById("submit_form");
-    submitForm.addEventListener("submit", OnSubmit);
+    if (submitForm != null) 
+    {
+        submitForm.addEventListener("submit", OnContactSubmit);
+    } 
+
+    // Get the 'Refer a Patient' form and add the event listener
+    const referralForm = document.getElementById("referral_form");
+    if (referralForm != null) 
+    {
+        referralForm.addEventListener("submit", OnReferralSubmit);
+    }
 }
 
-async function OnSubmit(event) 
+async function OnContactSubmit(event) 
 {
     // Prevent the default form submission behavior
     event.preventDefault();
@@ -59,23 +77,67 @@ async function OnSubmit(event)
 
     console.log('Form Object: ', formObject);
 
-    try {
+    try 
+    {
         emailjs.send("service_hze44sb","template_mjifqer", formObject)
-        .then(function(response) {
+        .then(function(response) 
+        {
             console.log('SUCCESS!', response.status, response.text);
             alert("Message sent");
             window.location.reload();
-        }, function(error) {
+        }, 
+        function(error) 
+        {
             console.log('FAILED...', error);
             alert("Send failed");
         });
     } 
-    catch (error) {
+    catch (error) 
+    {
         console.error("Failed to send email:", error);
     }
 }
 
-function addDate() {
+async function OnReferralSubmit(event) 
+{
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    const form = document.querySelector('#referral_form');
+
+    // Create a FormData object from the form element
+    var formData = new FormData(form);
+
+    // Convert all data to a plain JavaScript object
+    const formObject = Object.fromEntries(formData.entries());
+    formObject['email'] = 'jla.armstrong@gmail.com';    // Target email for EmailEJS
+    
+    console.log('Form Object: ', formObject);
+
+    try 
+    {
+        emailjs.send("service_hze44sb","template_scy36iw", formObject)
+        .then(
+        function(response) 
+        {
+            console.log('SUCCESS!', response.status, response.text);
+            alert("Referral sent");
+            window.location.reload();
+        }, 
+        function(error) 
+        {
+            console.log('FAILED...', error);
+            alert("Send failed");
+        });
+    } 
+    catch (error) 
+    {
+        console.error("Failed to send email:", error);
+    }
+}
+
+function addDate() 
+{
     // Create a new Date object for the current date and time
     const currentDate = new Date();
     const currentYearNumber = currentDate.getFullYear(); // Returns a number, e.g., 2025
@@ -89,7 +151,8 @@ function addDate() {
     dateElement.innerHTML = currentYearString;
 }
 
-function addHeader() {
+function addHeader() 
+{
     const hdrText = `
     <nav class="navbar navbar-expand-lg bg-light" style="padding: 8px 15% 8px 10%">
         <div class="container-fluid">
@@ -153,7 +216,8 @@ function addHeader() {
     hdrElement.innerHTML = hdrText;
 }
 
-function addFooter() {
+function addFooter() 
+{
     const ftrText = `
         <br>
         <hr style="margin-left:5%" width="90%">

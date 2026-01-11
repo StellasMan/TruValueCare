@@ -103,7 +103,7 @@ body {
 
 /* *** Referral *** */
 .referral-form {
-  background-color: antiquewhite;
+  background-color: var(--page-color);
 }
 
 .boxed-item {
@@ -137,7 +137,7 @@ body {
   border-radius: 20px;
 }
 
-.form-group input {
+:is(.form-group, .group-form) :is(input, select) {
   /* Ensures inputs take the full width of their grid cell */
   width: 100%; 
   padding: 8px;
@@ -179,6 +179,27 @@ body {
 
 .align-middle {
     vertical-align: middle;
+}
+
+.label-combo {
+  display: grid;
+  /* Defines two columns: the first is 150px wide, the second takes the remaining space */
+  grid-template-columns: 150px 1fr; 
+  gap: 10px; /* Adds space between the label and the combobox */
+  align-items: center; /* Vertically centers the items in the row */
+}
+
+.label-combo label {
+  /* Ensure the label text aligns well within its column */
+  text-align: right; 
+  padding-top: 6px;
+  padding-right: 10px;
+}
+
+.label-combo select {
+  /* Optional: make the combobox take full width of its column */
+  width: 100%; 
+  padding: 5px;
 }
 
 /* Media Query for smaller screens */
