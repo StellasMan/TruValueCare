@@ -64,22 +64,12 @@
                     </div>
 
                 </div>
-
-                <div class="row entry">
-                    <div class="col-lg-1 col-md-1 col-sm-12">
-                    </div>
-                    <div class="col-lg-10 col-md-10 col-sm-12" style="text-align: center; margin-top: 20px; cursor: pointer;">
-                        <a href="./referral.html" target="_self" title="Refer a Patient" class="btn btn-primary w-100 mb-4">Refer a Patient</a>
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-sm-12">
-                    </div>
-                </div> 
             </div>
 
             <form id="submit_form" class="grid-form">
                 <div style="justify-items: center" class="form-group span-two">
                     <p>
-                        <h2>Request an Appointment</h2>
+                        <h2>Book an Appointment</h2>
                     </p>
                 </div>
 
@@ -126,16 +116,17 @@
                 </div>
 
                 <div>
-                    <input type="checkbox" name="new_patient" checked>
+                    <input type="checkbox" name="new_patient" unchecked>
                     Are you a new patient?
                 </div>
 
                 <div>
                     <label for="referral_method">How did you hear about us?</label>
                     <select id="referral" name="referral_selected">
+                        <option value="None"  selected></option>
                         <option value="Friend">Friend</option>
                         <option value="Family">Family Member</option>
-                        <option value="Internet" selected>Internet</option>  <!-- This option is selected by default -->
+                        <option value="Internet">Internet</option>  <!-- This option is selected by default -->
                         <option value="Other">Other</option>
                     </select>
                 </div>

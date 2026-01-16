@@ -123,7 +123,8 @@ async function OnReferralSubmit(event)
             (patientAgeRaw == 'Five212')        ? "5-12"    :
             (patientAgeRaw == 'Thirteen217')    ? "13-17"   :
             (patientAgeRaw == 'Eighteen260')    ? "18-60"   :
-            (patientAgeRaw == 'Over60')         ? "Over 60" : 'Unknown';
+            (patientAgeRaw == 'Sixty280')       ? "60-80"   :
+            (patientAgeRaw == 'Over80')         ? "Over 80" :  'Unknown';
     formObject['patient_age'] = patientAge;
 
     // Create a new Date object for the current date and time
@@ -215,6 +216,7 @@ function addHeader()
                             <li><a class="dropdown-item" href="./ngozi.html">Ngozi Kalu, AGNP-C</a></li>
                             <li><a class="dropdown-item" href="./sussan.html">Dr. Sussan Tanyi</a></li>
                             <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="./referral.html">Make a referral</a></li>
                             <li><a class="dropdown-item" href="#">Testimonials</a></li>
                             <li><a class="dropdown-item" href="#">Gallery</a></li>
                         </ul>
