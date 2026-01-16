@@ -217,8 +217,6 @@ function addHeader()
                             <li><a class="dropdown-item" href="./sussan.html">Dr. Sussan Tanyi</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="./referral.html">Make a referral</a></li>
-                            <li><a class="dropdown-item" href="#">Testimonials</a></li>
-                            <li><a class="dropdown-item" href="#">Gallery</a></li>
                         </ul>
                     </li>
                     <li pl-5">

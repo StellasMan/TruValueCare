@@ -202,6 +202,11 @@ body {
   padding: 5px;
 }
 
+.google-map {
+  text-align: center;
+  margin-top: 50px;
+}
+
 /* Media Query for smaller screens */
 @media (max-width: 991px) {
   .two-column {
