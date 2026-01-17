@@ -174,7 +174,7 @@ function addDate()
 function addHeader() 
 {
     const hdrText = `
-    <nav class="navbar navbar-expand-lg bg-light" style="padding: 8px 15% 8px 10%">
+    <nav class="navbar navbar-expand-lg bg-light" style="padding: 8px 5% 8px 5%">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="./Images/Tru-Value Care Logo.png" height="130px" alt="True Value Care Logo"/>
@@ -191,7 +191,7 @@ function addHeader()
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
@@ -219,8 +219,13 @@ function addHeader()
                             <li><a class="dropdown-item" href="./referral.html">Make a referral</a></li>
                         </ul>
                     </li>
-                    <li pl-5">
-                        <a  href="./contact.html" class="btn btn-primary">Contact</a>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item font-size-var mb-2 mb-lg-0">
+                        <a  href="tel:+13468275466" class="btn btn-primary">Call&nbsp;346&#8209;827&#8209;5466</a>
+                    </li>
+                    <li class="nav-item mb-0">
+                        <a  href="./contact.html" class="btn btn-primary">Book&nbsp;an&nbsp;Appointment</a>
                     </li>
                 </ul>
             </div>
@@ -262,3 +267,27 @@ function addFooter()
     // Insert the header
     ftrElement.innerHTML = ftrText;
 }
+
+const homeCarouselElement = document.querySelector('#homeCarouselIndicators');
+
+homeCarouselElement.addEventListener('slid.bs.carousel', event => {
+  // Action to take after the slide transition is complete
+  var messages = 
+    [
+        "<h4>Welcome to Tru-Value</h5><h1>Caring for the individual with experienced and professional therapy</h1>",
+        "<h4>Compassion</h5><h1>We listen deeply and treat every patient with respect</h1>",
+        "<h4>Access</h5><h1>Flexible scheduling, evening telehealth, and insurance acceptance</h1>",
+        "<h4>Integrity</h5><h1>Honest, transparent, patient-centered services</h1>",
+    ];
+
+  const currentSlideIndex = event.to;
+  const homeSlideElement = document.querySelector('#hp-message');
+  const homeSlideText = messages[currentSlideIndex];
+
+  // Image 3 needs a black background as white blends in
+  homeSlideElement.style.color = (currentSlideIndex == 2) ? "black" : "white";
+  homeSlideElement.innerHTML = homeSlideText;
+
+  console.log(`Now on slide index: ${currentSlideIndex}`);
+});
+

@@ -75,9 +75,13 @@ body {
 }
 
 .navbar-nav > li{
-  padding-left:60px;
+  padding-left:30px;
   font-weight: 600;
   font-size: large;
+}
+
+.font-size-var {
+  font-size: 100%;  /* Same as parent */
 }
 
 .body-content {
@@ -207,6 +211,48 @@ body {
   margin-top: 50px;
 }
 
+.btn-fixed {
+  position: fixed;
+  top: 15px;
+  left: auto;
+  right: 10px;
+  padding: 10px;
+  /* Ensure it is above other content */
+  z-index: 1000; 
+  font-size: smaller;
+}
+
+/* Add padding to the body or main content to prevent overlap */
+body {
+  padding-top: 60px; /* Adjust based on the height of your fixed-nav */
+}
+
+/* Apply the animation to an HTML element */
+.slide-up-element {
+    animation-name: slideup;              /* Name of the keyframe rule */
+    animation-duration: 3s;               /* Duration of one animation cycle */
+    animation-iteration-count: infinite;  /* Loop count */
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    display: grid;
+    position: absolute; 
+    top:60%; 
+    left: 10px;
+}
+
+/* Define the @keyframes rule */
+@keyframes slideup {
+    from {
+        transform: translateY(100%); /* Start position off-screen left */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);    /* End position at its original place */
+        opacity: 1;
+    }
+}
+
 /* Media Query for smaller screens */
 @media (max-width: 991px) {
   .two-column {
@@ -226,5 +272,9 @@ body {
     padding-bottom: 0px;
     font-weight: 300;
     font-size:medium;
+  }
+
+  .font-size-var {
+    font-size: smaller;
   }
 }
