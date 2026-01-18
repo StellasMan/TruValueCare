@@ -3,6 +3,8 @@ function initializePage()
     addHeader();
     addFooter();
     addDate();
+    initializeTransitions();
+    slideCarouselText(0);
 }
 
 function initializeContactPage() 
@@ -222,10 +224,10 @@ function addHeader()
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item font-size-var mb-2 mb-lg-0">
-                        <a  href="tel:+13468275466" class="btn btn-primary">Call&nbsp;346&#8209;827&#8209;5466</a>
+                        <a  href="tel:+13468275466" class="btn btn-primary">Call 346&#8209;827&#8209;5466</a>
                     </li>
                     <li class="nav-item mb-0">
-                        <a  href="./contact.html" class="btn btn-primary">Book&nbsp;an&nbsp;Appointment</a>
+                        <a  href="./contact.html" class="btn btn-primary">Book&nbsp;an Appointment</a>
                     </li>
                 </ul>
             </div>
@@ -268,26 +270,118 @@ function addFooter()
     ftrElement.innerHTML = ftrText;
 }
 
-const homeCarouselElement = document.querySelector('#homeCarouselIndicators');
+// Slide the text into view.
+// We assume here that the active page has an element '.slide-up-element' which
+// contains a text item with the 'slide-message' id.
+function slideText(textSlide) {
+    console.log(`slideText(${textSlide})`);
+    const homeSlideElement = document.querySelector('#slide-message');
+    homeSlideElement.innerHTML = textSlide;
 
-homeCarouselElement.addEventListener('slid.bs.carousel', event => {
-  // Action to take after the slide transition is complete
-  var messages = 
-    [
-        "<h4>Welcome to Tru-Value</h5><h1>Caring for the individual with experienced and professional therapy</h1>",
-        "<h4>Compassion</h5><h1>We listen deeply and treat every patient with respect</h1>",
-        "<h4>Access</h5><h1>Flexible scheduling, evening telehealth, and insurance acceptance</h1>",
-        "<h4>Integrity</h5><h1>Honest, transparent, patient-centered services</h1>",
-    ];
+    const homeSlideContainer = document.querySelector('.slide-up-element');
+    homeSlideContainer.animate
+    (
+        [
+            { transform: 'translateY(100%)', opacity: 0 },
+            { transform: 'translateY(0%)', opacity: 1 }
+        ], 
+        {
+            duration: 3000,
+            iterations: 1
+        }
+    );
+}
 
-  const currentSlideIndex = event.to;
-  const homeSlideElement = document.querySelector('#hp-message');
-  const homeSlideText = messages[currentSlideIndex];
+// Change the sliding text associated with each carousel item,
+// and force an animation to cause the text to slide into view.
+// This method is called whenever the carousel 'slides'.
+function slideCarouselText(slideIndex) {
+    var messages = [];
+    var hasCarousel = false;
 
-  // Image 3 needs a black background as white blends in
-  homeSlideElement.style.color = (currentSlideIndex == 2) ? "black" : "white";
-  homeSlideElement.innerHTML = homeSlideText;
+    // Check if the current page is the 'home' page
+    if (window.location.pathname.includes('/index.html')) 
+    {
+        hasCarousel = true;
 
-  console.log(`Now on slide index: ${currentSlideIndex}`);
-});
+        // We need to make sure that we have 1 message for each carousel item.
+        // The 'Home' page currently has 4 carousel items.
+        messages = 
+        [
+            "<h4>Welcome to Tru-Value</h4><h1>Caring for the individual with experienced and professional therapy</h1>",
+            "<h4>Compassion</h5><h1>We listen deeply and treat every patient with respect</h1>",
+            "<h4>Access</h5><h1>Flexible scheduling, evening telehealth, and insurance acceptance</h1>",
+            "<h4>Integrity</h5><h1>Honest, transparent, patient-centered services</h1>"
+        ] 
+    } 
+    else if (window.location.pathname.includes('/services.html')) 
+    {
+        hasCarousel = true;
+
+        // We need to make sure that we have 1 message for each carousel item.
+        // The 'Services' page currently has 3 carousel items.
+        messages = 
+        [
+            "<h4>Medication Management</h4><h1>Evaluation, diagnosis, and treatment of psychiatric medications</h1>",
+            "<h4>ADHD Evaluation and Treatment</h5><h1>Assess, treat, and advise behavioral planning</h1>",
+            "<h4>Anxiety Disorders</h5><h1>We assess and treat generalized, social and PTSD-related anxieties</h1>",
+        ];
+    }
+
+    if (hasCarousel) {
+        const textSlide = messages[slideIndex];
+        slideText(textSlide);
+    }
+}
+
+function initializeTransitions() 
+{
+    // Action to take after the slide transition is complete
+
+    console.log(`Current page is ${window.location.pathname}`);
+
+    // Check if the current page is the 'home' page
+    if (window.location.pathname.includes('/index.html')) 
+    {
+        // Home page
+        const homeCarouselElement = document.querySelector('#homeCarouselContainer');
+        homeCarouselElement.addEventListener(
+            'slid.bs.carousel', 
+            event => 
+            {
+                const currentSlideIndex = event.to;
+                slideCarouselText(currentSlideIndex);
+                console.log(`Now on slide index: ${currentSlideIndex}`);
+            }
+        );
+    } else if (window.location.pathname.includes('/services.html')) 
+    {
+        // Services page
+        const servicesCarouselElement = document.querySelector('#servicesCarouselContainer');
+        servicesCarouselElement.addEventListener(
+            'slid.bs.carousel', 
+            event => 
+            {
+                const currentSlideIndex = event.to;
+                slideCarouselText(currentSlideIndex);
+                console.log(`Now on slide index: ${currentSlideIndex}`);
+            }
+        );
+    } else if (window.location.pathname.includes('/our_practice.html')) 
+    {
+        slideText("<h1>Our Practice</h1>");
+    } else if (window.location.pathname.includes('/ngozi.html')) 
+    {
+        slideText("<h1>About Ngozi Kalu</h1>");
+    } else if (window.location.pathname.includes('/sussan.html')) 
+    {
+        slideText("<h1>About Dr. Sussan Tanyi</h1>");
+    } else if (window.location.pathname.includes('/referral.html'))
+    {
+        slideText("<h1>Make a referral</h1>");
+    } else if (window.location.pathname.includes('/contact.html'))
+    {
+        slideText("<h1>Book an Appointment</h1>");
+    }
+}
 

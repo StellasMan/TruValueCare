@@ -22,9 +22,13 @@
         </div>
 
         <div class="body-content">
-            <div class="col-lg-10 mx-auto">
-                <div class="px-4 pt-3 py-1 my-1 text-center">
-                    <img src="./Images/ReceptionAreaWithReceptionist.jpg" width=100%; alt="About Ngozi Kalu">
+            <!-- We make this element position: relative so the slide-in text can be positioned within the image using 'position: absolute' -->
+            <div style="position: relative;" class="col-lg-10 mx-auto px-0 py-1 my-1 text-center">
+                <img src="./Images/ReceptionAreaWithReceptionist.jpg" width=100%; alt="Our Practice">
+
+                <!-- This text will slide into position -->
+                <div class="slide-up-element">
+                    <p id="slide-message"></p>
                 </div>
             </div>
 

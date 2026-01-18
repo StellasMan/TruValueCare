@@ -229,22 +229,28 @@ body {
 
 /* Apply the animation to an HTML element */
 .slide-up-element {
-    animation-name: slideup;              /* Name of the keyframe rule */
-    animation-duration: 3s;               /* Duration of one animation cycle */
-    animation-iteration-count: infinite;  /* Loop count */
     height: 50px;
     background-color: transparent;
     color: white;
-    display: grid;
+    /* display: grid; */
     position: absolute; 
     top:60%; 
     left: 10px;
+    text-align: left;
+}
+
+.boxed-element-red {
+  border: 1px solid red;
+}
+
+.boxed-element-black {
+  border: 1px solid black;
 }
 
 /* Define the @keyframes rule */
 @keyframes slideup {
     from {
-        transform: translateY(100%); /* Start position off-screen left */
+        transform: translateY(100%); /* Start position off-screen bottom */
         opacity: 0;
     }
     to {
@@ -253,8 +259,9 @@ body {
     }
 }
 
-/* Media Query for smaller screens */
-@media (max-width: 991px) {
+/* Media Query for smaller screens  */
+/* --bs-breakpoint-md = 768 px      */
+@media (max-width: 768px) { 
   .two-column {
     flex-direction: column; /* On screens 991px or less, stack items vertically */
   }
@@ -276,5 +283,10 @@ body {
 
   .font-size-var {
     font-size: smaller;
+  }
+
+  .slide-up-element {
+      top:5%; 
+      left: 5px;
   }
 }
