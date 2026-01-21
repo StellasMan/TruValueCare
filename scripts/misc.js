@@ -168,8 +168,7 @@ function addDate()
     // Get the HTML element by its ID
     const dateElement = document.getElementById("dateYear");
 
-    // Set the element's content to a user-friendly string format
-    // toLocaleDateString formats the date based on the user's browser settings (e.g., December 11, 2025)
+    // Set the year in the selected HTML element
     dateElement.innerHTML = currentYearString;
 }
 
@@ -216,10 +215,13 @@ function addHeader()
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./our_practice.html">Our Practice</a></li>
                             <li><a class="dropdown-item" href="./ngozi.html">Ngozi Kalu, AGNP-C</a></li>
-                            <li><a class="dropdown-item" href="./sussan.html">Dr. Sussan Tanyi</a></li>
+                            <li><a class="dropdown-item" href="./susan.html">Dr. Susan Tanyi</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="./referral.html">Make a referral</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./contact.html">Contact Us</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -227,7 +229,7 @@ function addHeader()
                         <a  href="tel:+13468275466" class="btn btn-primary">Call 346&#8209;827&#8209;5466</a>
                     </li>
                     <li class="nav-item mb-0">
-                        <a  href="./contact.html" class="btn btn-primary">Book&nbsp;an Appointment</a>
+                        <a  href="https://care.headway.co/providers/ngozi-kalu?utm_source=pem&utm_medium=direct_link&utm_campaign=136140" class="btn btn-primary">Book&nbsp;an Appointment</a>
                     </li>
                 </ul>
             </div>
@@ -308,9 +310,9 @@ function slideCarouselText(slideIndex) {
         // The 'Home' page currently has 4 carousel items.
         messages = 
         [
-            "<h4>Welcome to Tru-Value</h4><h1>Caring for the individual with experienced and professional therapy</h1>",
+            "<h4>Welcome to Tru-Value Care</h4><h1>Caring for the individual with experienced and professional therapy</h1>",
             "<h4>Compassion</h5><h1>We listen deeply and treat every patient with respect</h1>",
-            "<h4>Access</h5><h1>Flexible scheduling, evening telehealth, and insurance acceptance</h1>",
+            "<h4>Medication Management</h5><h1>Evaluation, diagnosis, and ongoing management of psychiatric medications tailored to your unique needs</h1>",
             "<h4>Integrity</h5><h1>Honest, transparent, patient-centered services</h1>"
         ] 
     } 
@@ -373,15 +375,21 @@ function initializeTransitions()
     } else if (window.location.pathname.includes('/ngozi.html')) 
     {
         slideText("<h1>About Ngozi Kalu</h1>");
-    } else if (window.location.pathname.includes('/sussan.html')) 
+    } else if (window.location.pathname.includes('/susan.html')) 
     {
-        slideText("<h1>About Dr. Sussan Tanyi</h1>");
+        slideText("<h1>About Dr. Susan Tanyi</h1>");
     } else if (window.location.pathname.includes('/referral.html'))
     {
         slideText("<h1>Make a referral</h1>");
     } else if (window.location.pathname.includes('/contact.html'))
     {
-        slideText("<h1>Book an Appointment</h1>");
+        slideText("<h1>Contact Us</h1>");
     }
 }
 
+// Called when user changes the dropdown selection 'How did you hear about us' on the Contact page
+function handleDropdownChange(value) {
+    console.log("Selected value:", value);
+    const hidden = document.getElementById("hidden_section");
+    hidden.style.display = (value == 'Other') ? "block" : "none";
+}
