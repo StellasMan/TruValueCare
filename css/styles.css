@@ -250,7 +250,14 @@ body {
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(3fl, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.logo-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 15px;
 }
 
@@ -259,7 +266,7 @@ body {
 }
 
 .full-width {
-  grid-column: 1 / span 6; /* Starts at column 1 and spans 4 columns */
+  grid-column: 1 / -1; /* Starts at column 1 and spans all columns */
   text-align: center;
 }
 
@@ -289,6 +296,20 @@ body {
     margin: 5px 15% 5px 15%;
   }
 
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+  }
+
+  .logo-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+  }
+
   .navbar-nav > li{
     padding-left:0px;
     padding-top: 0px;
@@ -305,11 +326,4 @@ body {
       top:5%; 
       left: 5px;
   }
-
-  /* .logo-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    gap: 8px;
-    background-color: greenyellow;
-  } */
 }

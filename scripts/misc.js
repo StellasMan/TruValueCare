@@ -89,13 +89,13 @@ async function OnContactSubmit(event)
         emailjs.send("service_hze44sb","template_mjifqer", formObject)
         .then(function(response) 
         {
-            console.log('SUCCESS!', response.status, response.text);
+            console.log('Message sent', response.status, response.text);
             alert("Message sent");
             window.location.reload();
         }, 
         function(error) 
         {
-            console.log('FAILED...', error);
+            console.log('Failed to send message', error);
             alert("Send failed");
         });
     } 
@@ -133,8 +133,6 @@ async function OnReferralSubmit(event)
     const currentDate = new Date();
     const timeStamp = currentDate.toLocaleString();
     formObject['time_stamp'] = timeStamp;
-
-    console.log('Form Object: ', formObject);
 
     try 
     {
@@ -276,7 +274,6 @@ function addFooter()
 // We assume here that the active page has an element '.slide-up-element' which
 // contains a text item with the 'slide-message' id.
 function slideText(textSlide) {
-    console.log(`slideText(${textSlide})`);
     const homeSlideElement = document.querySelector('#slide-message');
     homeSlideElement.innerHTML = textSlide;
 
@@ -310,7 +307,7 @@ function slideCarouselText(slideIndex) {
         // The 'Home' page currently has 4 carousel items.
         messages = 
         [
-            "<h4>Welcome to Tru-Value Care</h4><h1>Caring for the individual with experienced and professional therapy</h1>",
+            "<h4>Welcome to Tru-Value Care</h4><h1>Caring for individuals with our experienced mental health practitioners</h1>",
             "<h4>Compassion</h5><h1>We listen deeply and treat every patient with respect</h1>",
             "<h4>Medication Management</h5><h1>Evaluation, diagnosis, and ongoing management of psychiatric medications tailored to your unique needs</h1>",
             "<h4>Integrity</h5><h1>Honest, transparent, patient-centered services</h1>"
@@ -325,7 +322,7 @@ function slideCarouselText(slideIndex) {
         messages = 
         [
             "<h4>Medication Management</h4><h1>Evaluation, diagnosis, and treatment of psychiatric medications</h1>",
-            "<h4>ADHD Evaluation and Treatment</h5><h1>Assess, treat, and advise behavioral planning</h1>",
+            "<h4>Senior Care</h5><h1>Support for the patient suffering from Alzheimer's, dementia, and other age-related conditions</h1>",
             "<h4>Anxiety Disorders</h5><h1>We assess and treat generalized, social and PTSD-related anxieties</h1>",
         ];
     }
@@ -340,8 +337,6 @@ function initializeTransitions()
 {
     // Action to take after the slide transition is complete
 
-    console.log(`Current page is ${window.location.pathname}`);
-
     // Check if the current page is the 'home' page
     if (window.location.pathname.includes('/index.html')) 
     {
@@ -353,7 +348,6 @@ function initializeTransitions()
             {
                 const currentSlideIndex = event.to;
                 slideCarouselText(currentSlideIndex);
-                console.log(`Now on slide index: ${currentSlideIndex}`);
             }
         );
     } else if (window.location.pathname.includes('/services.html')) 
@@ -366,7 +360,6 @@ function initializeTransitions()
             {
                 const currentSlideIndex = event.to;
                 slideCarouselText(currentSlideIndex);
-                console.log(`Now on slide index: ${currentSlideIndex}`);
             }
         );
     } else if (window.location.pathname.includes('/our_practice.html')) 
@@ -389,7 +382,6 @@ function initializeTransitions()
 
 // Called when user changes the dropdown selection 'How did you hear about us' on the Contact page
 function handleDropdownChange(value) {
-    console.log("Selected value:", value);
     const hidden = document.getElementById("hidden_section");
     hidden.style.display = (value == 'Other') ? "block" : "none";
 }
