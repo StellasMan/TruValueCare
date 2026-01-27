@@ -86,7 +86,7 @@ async function OnContactSubmit(event)
 
     try 
     {
-        emailjs.send("service_hze44sb","template_mjifqer", formObject)
+        emailjs.send("GmailService","Contact_Request_Template", formObject)
         .then(function(response) 
         {
             console.log('Message sent', response.status, response.text);
@@ -136,7 +136,7 @@ async function OnReferralSubmit(event)
 
     try 
     {
-        emailjs.send("service_hze44sb","template_scy36iw", formObject)
+        emailjs.send("GmailService","Referral_Template", formObject)
         .then(
         function(response) 
         {
