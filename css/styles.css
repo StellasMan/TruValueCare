@@ -263,6 +263,8 @@ body {
 
 .logo-grid-item {
   align-items: center;
+    animation: fadeIn 2s ease-in forwards; /* Applies the 'fadeIn' animation over 2 seconds */
+    opacity: 0; /* Ensures the element is hidden before the animation starts */
 }
 
 .full-width {
@@ -279,6 +281,15 @@ body {
     to {
         transform: translateY(0);    /* End position at its original place */
         opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start of the animation: fully transparent */
+    }
+    100% {
+        opacity: 1; /* End of the animation: fully opaque */
     }
 }
 

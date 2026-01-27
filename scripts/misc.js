@@ -70,7 +70,7 @@ async function OnContactSubmit(event)
 
     // Convert all data to a plain JavaScript object
     const formObject = Object.fromEntries(formData.entries());
-    formObject['email'] = 'jla.armstrong@gmail.com';    // Target email for EmailEJS
+    formObject['email'] = 'myhealth@t-vcare.com';    // Target email for EmailEJS
     
     // Replace 'on'/'off' with 'Yes'/'No'
     newPatientRaw = formObject['new_patient'];
@@ -86,7 +86,7 @@ async function OnContactSubmit(event)
 
     try 
     {
-        emailjs.send("GmailService","Contact_Request_Template", formObject)
+        emailjs.send("TruValueService","Contact_Request_Template", formObject)
         .then(function(response) 
         {
             console.log('Message sent', response.status, response.text);
@@ -117,7 +117,8 @@ async function OnReferralSubmit(event)
 
     // Convert all data to a plain JavaScript object
     const formObject = Object.fromEntries(formData.entries());
-    formObject['email'] = 'jla.armstrong@gmail.com';    // Target email for EmailEJS
+    formObject['email'] = 'myhealth@t-vcare.com';    // Target email for EmailEJS
+
     
     // Replace patient age range with readable text
     var patientAgeRaw = formObject['patient_age'];
@@ -136,7 +137,7 @@ async function OnReferralSubmit(event)
 
     try 
     {
-        emailjs.send("GmailService","Referral_Template", formObject)
+        emailjs.send("TruValueService","Referral_Template", formObject)
         .then(
         function(response) 
         {
