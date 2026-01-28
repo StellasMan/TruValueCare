@@ -231,7 +231,6 @@ body {
 .slide-up-element {
     height: 50px;
     background-color: transparent;
-    color: white;
     /* display: grid; */
     position: absolute; 
     top:60%; 
@@ -239,12 +238,12 @@ body {
     text-align: left;
 }
 
-.boxed-element-red {
-  border: 1px solid red;
+.rp-element {
+  color:rebeccapurple;
 }
 
-.boxed-element-black {
-  border: 1px solid black;
+.white-element {
+  color:whitesmoke;
 }
 
 .logo-grid {
