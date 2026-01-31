@@ -340,10 +340,11 @@ function initializeTransitions()
 {
     console.log(`Current Page: ${window.location.pathname}`);
 
-    // Home page
-    const homeCarouselElement = document.querySelector('#homeCarouselContainer');
-    if (typeof(homeCarouselElement) != null)
+    // Check if the current page is the 'home' page
+    if (window.location.pathname.includes('/index.html')) 
     {
+        // Home page
+        const homeCarouselElement = document.querySelector('#homeCarouselContainer');
         homeCarouselElement.addEventListener(
             'slid.bs.carousel', 
             event => 
@@ -361,50 +362,47 @@ function initializeTransitions()
         // Simulate a carousel slide event
         homeCarouselElement.dispatchEvent(event);
     } 
-    else 
+    else if (window.location.pathname.includes('/services.html')) 
     {
         // Services page
         const servicesCarouselElement = document.querySelector('#servicesCarouselContainer');
-        if (typeof(servicesCarouselElement) != null)
-        {
-            servicesCarouselElement.addEventListener(
-                'slid.bs.carousel', 
-                event => 
-                {
-                    const currentSlideIndex = event.to;
-                    slideCarouselText(currentSlideIndex);
-                }
-            );
+        servicesCarouselElement.addEventListener(
+            'slid.bs.carousel', 
+            event => 
+            {
+                const currentSlideIndex = event.to;
+                slideCarouselText(currentSlideIndex);
+            }
+        );
 
-            // Create a new event object (e.g., a 'carousel slide' event)
-            const event = new Event('slid.bs.carousel', {
-                bubbles: true // 'bubbles: true' allows the event to bubble up through the DOM
-            });
+        // Create a new event object (e.g., a 'carousel slide' event)
+        const event = new Event('slid.bs.carousel', {
+            bubbles: true // 'bubbles: true' allows the event to bubble up through the DOM
+        });
 
-            // Simulate a carousel slide event
-            servicesCarouselElement.dispatchEvent(event);
-        }
+        // Simulate a carousel slide event
+        servicesCarouselElement.dispatchEvent(event);
     } 
-    // else if (window.location.pathname.includes('/our_practice.html')) 
-    // {
-    //     slideText("<h1>Our Practice</h1>");
-    // } 
-    // else if (window.location.pathname.includes('/ngozi.html')) 
-    // {
-    //     slideText("<h1>About Ngozi Kalu</h1>");
-    // } 
-    // else if (window.location.pathname.includes('/susan.html')) 
-    // {
-    //     slideText("<h1>About Dr. Susan Tanyi</h1>");
-    // } 
-    // else if (window.location.pathname.includes('/referral.html'))
-    // {
-    //     slideText("<h1>Make a referral</h1>");
-    // } 
-    // else if (window.location.pathname.includes('/contact.html'))
-    // {
-    //     slideText("<h1>Contact Us</h1>");
-    // }
+    else if (window.location.pathname.includes('/our_practice.html')) 
+    {
+        slideText("<h1>Our Practice</h1>");
+    } 
+    else if (window.location.pathname.includes('/ngozi.html')) 
+    {
+        slideText("<h1>About Ngozi Kalu</h1>");
+    } 
+    else if (window.location.pathname.includes('/susan.html')) 
+    {
+        slideText("<h1>About Dr. Susan Tanyi</h1>");
+    } 
+    else if (window.location.pathname.includes('/referral.html'))
+    {
+        slideText("<h1>Make a referral</h1>");
+    } 
+    else if (window.location.pathname.includes('/contact.html'))
+    {
+        slideText("<h1>Contact Us</h1>");
+    }
 }
 
 // Called when user changes the dropdown selection 'How did you hear about us' on the Contact page
