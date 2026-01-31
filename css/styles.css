@@ -84,6 +84,14 @@ body {
   font-size: 100%;  /* Same as parent */
 }
 
+.font-size-var-sm {
+  font-size: 1em;
+}
+
+.font-size-var-lg {
+  font-size:2em;
+}
+
 .body-content {
     margin-top: 160px;
 }
@@ -233,7 +241,7 @@ body {
     background-color: transparent;
     /* display: grid; */
     position: absolute; 
-    top:60%; 
+    top:30%; 
     left: 10px;
     text-align: left;
 }
@@ -292,9 +300,9 @@ body {
     }
 }
 
-/* Media Query for smaller screens  */
-/* --bs-breakpoint-md = 768 px      */
-@media (max-width: 768px) { 
+/* Media Query for smaller screens                                */
+/* Note that the header breaks at 'navbar-expand-lg', or >= 992px */
+@media (max-width: 991px) { 
   .two-column {
     flex-direction: column; /* On screens 768px or less, stack items vertically */
   }
@@ -330,6 +338,15 @@ body {
 
   .font-size-var {
     font-size: smaller;
+  }
+
+  .font-size-var-sm {
+    font-size:0.75em;
+    margin-bottom: 0px;
+  }
+
+  .font-size-var-lg {
+    font-size:1.25em;
   }
 
   .slide-up-element {

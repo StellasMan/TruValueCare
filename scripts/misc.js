@@ -286,7 +286,7 @@ function slideText(textSlide) {
             { transform: 'translateY(0%)', opacity: 1 }
         ], 
         {
-            duration: 3000,
+            duration: 2000,
             iterations: 1
         }
     );
@@ -308,10 +308,10 @@ function slideCarouselText(slideIndex) {
         // The 'Home' page currently has 4 carousel items.
         messages = 
         [
-            "<h4>Welcome to Tru-Value Care</h4><h1>Caring for individuals with our experienced mental health practitioners</h1>",
-            "<h4>Compassion</h5><h1>We listen deeply and treat every patient with respect</h1>",
-            "<h4>Medication Management</h5><h1>Evaluation, diagnosis, and ongoing management of psychiatric medications tailored to your unique needs</h1>",
-            "<h4>Integrity</h5><h1>Honest, transparent, patient-centered services</h1>"
+            "<p class=\"font-size-var-sm\">Welcome to Tru-Value Care</p><p class=\"font-size-var-lg\">Caring for individuals with our experienced mental health practitioners</p>",
+            "<p class=\"font-size-var-sm\">Compassion</p><p class=\"font-size-var-lg\">We listen deeply and treat every patient with respect</p>",
+            "<p class=\"font-size-var-sm\">Medication Management</p><p class=\"font-size-var-lg\">Evaluation, diagnosis, and ongoing management of psychiatric medications tailored to your unique needs</p>",
+            "<p class=\"font-size-var-sm\">Integrity</p><p class=\"font-size-var-lg\">Honest, transparent, patient-centered services</p>",
         ] 
     } 
     else if (window.location.pathname.includes('/services.html')) 
@@ -322,9 +322,9 @@ function slideCarouselText(slideIndex) {
         // The 'Services' page currently has 3 carousel items.
         messages = 
         [
-            "<h4>Medication Management</h4><h1>Evaluation, diagnosis, and treatment of psychiatric medications</h1>",
-            "<h4>Senior Care</h5><h1>Support for the patient suffering from Alzheimer's, dementia, and other age-related conditions</h1>",
-            "<h4>Anxiety Disorders</h5><h1>We assess and treat generalized, social and PTSD-related anxieties</h1>",
+            "<p class=\"font-size-var-sm\">Medication Management</p><p class=\"font-size-var-lg\">Evaluation, diagnosis, and treatment of psychiatric medications</p>",
+            "<p class=\"font-size-var-sm\">Senior Care</p><p class=\"font-size-var-lg\">Support for the patient suffering from Alzheimer's, dementia, and other age-related conditions</p>",
+            "<p class=\"font-size-var-sm\">Anxiety Disorders</p><p class=\"font-size-var-lg\">We assess and treat generalized, social and PTSD-related anxieties</p>",
         ];
     }
 
@@ -337,6 +337,7 @@ function slideCarouselText(slideIndex) {
 function initializeTransitions() 
 {
     // Action to take after the slide transition is complete
+    console.log(`initializeTransitions: Page ${window.location.pathname}`);
 
     // Check if the current page is the 'home' page
     if (window.location.pathname.includes('/index.html')) 
