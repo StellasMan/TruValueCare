@@ -4,6 +4,7 @@ function initializePage()
     addFooter();
     addDate();
     initializeTransitions();
+    slideText("This is a test");
 }
 
 function initializeContactPage() 
@@ -337,6 +338,8 @@ function slideCarouselText(currentSlideIndex) {
 
 function initializeTransitions() 
 {
+    console.log(`Current Page: ${window.location.pathname}`);
+
     // Check if the current page is the 'home' page
     if (window.location.pathname.includes('/index.html')) 
     {
