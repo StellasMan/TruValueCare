@@ -10,10 +10,13 @@
             integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
             crossorigin="anonymous"/>
 
-         <link rel="stylesheet" href="./css/styles.css"/>
+        <link rel="stylesheet" href="./css/styles.css"/>
+
+        <!-- Include our own scripts -->
+        <script src="./scripts/misc.js"></script>
     </head>
 
-    <body onload="initializeContactPage()">
+    <body onload="initializePage(CONTACT_PAGE)">
         <div class="nav-bar">
             <div id="hdrSection">
             </div>
@@ -193,8 +196,5 @@
 
         <!-- Reference EmailJS CDN -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-        <!-- Include our own scripts -->
-        <script src="./scripts/misc.js"></script>
     </body>
 </html>
