@@ -4,7 +4,6 @@ function initializePage()
     addFooter();
     addDate();
     initializeTransitions();
-    slideCarouselText(0);
 }
 
 function initializeContactPage() 
@@ -295,9 +294,11 @@ function slideText(textSlide) {
 // Change the sliding text associated with each carousel item,
 // and force an animation to cause the text to slide into view.
 // This method is called whenever the carousel 'slides'.
-function slideCarouselText(slideIndex) {
+function slideCarouselText(currentSlideIndex) {
     var messages = [];
     var hasCarousel = false;
+
+    var slideIndex = typeof(currentSlideIndex)=='undefined' ? 0 : currentSlideIndex;
 
     // Check if the current page is the 'home' page
     if (window.location.pathname.includes('/index.html')) 
@@ -336,9 +337,6 @@ function slideCarouselText(slideIndex) {
 
 function initializeTransitions() 
 {
-    // Action to take after the slide transition is complete
-    console.log(`initializeTransitions: Page ${window.location.pathname}`);
-
     // Check if the current page is the 'home' page
     if (window.location.pathname.includes('/index.html')) 
     {
@@ -352,7 +350,16 @@ function initializeTransitions()
                 slideCarouselText(currentSlideIndex);
             }
         );
-    } else if (window.location.pathname.includes('/services.html')) 
+
+        // Create a new event object (e.g., a 'carousel slide' event)
+        const event = new Event('slid.bs.carousel', {
+            bubbles: true // 'bubbles: true' allows the event to bubble up through the DOM
+        });
+
+        // Simulate a carousel slide event
+        homeCarouselElement.dispatchEvent(event);
+    } 
+    else if (window.location.pathname.includes('/services.html')) 
     {
         // Services page
         const servicesCarouselElement = document.querySelector('#servicesCarouselContainer');
@@ -364,19 +371,32 @@ function initializeTransitions()
                 slideCarouselText(currentSlideIndex);
             }
         );
-    } else if (window.location.pathname.includes('/our_practice.html')) 
+
+        // Create a new event object (e.g., a 'carousel slide' event)
+        const event = new Event('slid.bs.carousel', {
+            bubbles: true // 'bubbles: true' allows the event to bubble up through the DOM
+        });
+
+        // Simulate a carousel slide event
+        servicesCarouselElement.dispatchEvent(event);
+    } 
+    else if (window.location.pathname.includes('/our_practice.html')) 
     {
         slideText("<h1>Our Practice</h1>");
-    } else if (window.location.pathname.includes('/ngozi.html')) 
+    } 
+    else if (window.location.pathname.includes('/ngozi.html')) 
     {
         slideText("<h1>About Ngozi Kalu</h1>");
-    } else if (window.location.pathname.includes('/susan.html')) 
+    } 
+    else if (window.location.pathname.includes('/susan.html')) 
     {
         slideText("<h1>About Dr. Susan Tanyi</h1>");
-    } else if (window.location.pathname.includes('/referral.html'))
+    } 
+    else if (window.location.pathname.includes('/referral.html'))
     {
         slideText("<h1>Make a referral</h1>");
-    } else if (window.location.pathname.includes('/contact.html'))
+    } 
+    else if (window.location.pathname.includes('/contact.html'))
     {
         slideText("<h1>Contact Us</h1>");
     }
