@@ -231,6 +231,15 @@ body {
   padding-top: 60px; /* Adjust based on the height of your fixed-nav */
 }
 
+iframe.responsive-map {
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  margin-right: auto;
+  aspect-ratio: 4 / 3; /* Maintains a 4:3 aspect ratio */
+  /* Or use aspect-ratio: 16 / 9; for 16:9 */
+}
+
 /* Apply the animation to an HTML element */
 .slide-up-element {
     height: 50px;
