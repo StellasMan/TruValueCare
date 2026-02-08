@@ -23,7 +23,7 @@ function initializeEJS()
     {
         emailjs.init(
         {
-            publicKey: 'geS2qWKzC39WSHNX1',
+            publicKey: 'Rdikwj9t_Vvvhps6D',
             // Do not allow headless browsers
             blockHeadless: true,
             blockList: 
@@ -74,7 +74,7 @@ async function OnContactSubmit(event)
 
     // Convert all data to a plain JavaScript object
     const formObject = Object.fromEntries(formData.entries());
-    formObject['email'] = 'myhealth@t-vcare.com';    // Target email for EmailEJS
+    formObject['email'] = 'jla.armstrong@gmail.com';    // Target email for EmailEJS
     
     // Replace 'on'/'off' with 'Yes'/'No'
     newPatientRaw = formObject['new_patient'];
@@ -121,7 +121,7 @@ async function OnReferralSubmit(event)
 
     // Convert all data to a plain JavaScript object
     const formObject = Object.fromEntries(formData.entries());
-    formObject['email'] = 'myhealth@t-vcare.com';    // Target email for EmailEJS
+    formObject['email'] = 'jla.armstrong@gmail.com';    // Target email for EmailEJS
 
     // Replace patient age range with readable text
     var patientAgeRaw = formObject['patient_age'];
